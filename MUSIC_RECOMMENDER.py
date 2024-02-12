@@ -11,7 +11,6 @@ Original file is located at
 * Obtain access token
 """
 
-pip install streamlit
 import streamlit as st
 
 import time
