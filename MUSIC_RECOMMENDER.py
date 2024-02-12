@@ -17,7 +17,7 @@ import streamlit as st
 import time
 
 st.title("PULSE")
-text = "Here's introducing the first-of-its-kind music recommendation system that recommends playlists not only based on your digital activity but also on your physical whereabouts! Feel the pulse!")"
+text = "Here's introducing the first-of-its-kind music recommendation system that recommends playlists not only based on your digital activity but also on your physical whereabouts! Feel the pulse!"
 
 def stream_data():
   for word in text.split():
