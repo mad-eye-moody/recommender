@@ -54,11 +54,11 @@ print(AUTHORIZATION_URL)
 auth_button = st.button("Please authorize the app", help="Click to authorize the app with Spotify")
 
 if auth_button:
-    st.experimental_set_query_params(redirect_uri=REDIRECT_URI)
+    st.query_params(redirect_uri=REDIRECT_URI)
     st.write(f"Please visit the following URL to authorize the app:")
     st.write(AUTHORIZATION_URL)
 
-url = st.experimental_get_query_params()
+url = st.query_params()
 authorization_code = url.get("code", None)
 
 if authorization_code:
