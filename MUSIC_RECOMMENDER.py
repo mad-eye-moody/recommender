@@ -21,7 +21,7 @@ text = "Here's introducing the first-of-its-kind music recommendation system tha
 def stream_data():
   for word in text.split():
     yield word + " "
-    time.sleep(0.02)
+    time.sleep(0.05)
 
 st.write_stream(stream_data)
 
@@ -32,7 +32,7 @@ import pandas as pd
 
 CLIENT_ID = 'e3d55cc8c20548fab51f3df781f49ed1'
 CLIENT_SECRET = '52da3c96f0fb4dc683724c7d13f1b350'
-REDIRECT_URI= 'https://colab.research.google.com/drive/1NapGB_60yH95Oi2fP__c5umbtTlo-M3A?usp=sharing'
+REDIRECT_URI= 'https://recommender-dyj8dtwznh39x2jevwntzx.streamlit.app/'
 
 # Spotify API endpoints
 
@@ -51,18 +51,25 @@ AUTHORIZATION_URL = ( 'https://accounts.spotify.com/authorize?client_id=' + CLIE
 print("Please visit the following URL to authorize the app:")
 print(AUTHORIZATION_URL)
 
-st.link_button("Please authorize the app", AUTHORIZATION_URL, help="This app needs Spotify's permission to access your data", type="primary", disabled=False)
+auth_button = st.button("Please authorize the app", help="Click to authorize the app with Spotify")
 
-# Get the authorization code from the user after they grant access
-authorization_code = input("Enter the authorization code: ")
+if auth_button:
+    st.experimental_set_query_params(redirect_uri=REDIRECT_URI)
+    st.write(f"Please visit the following URL to authorize the app:")
+    st.write(AUTHORIZATION_URL)
 
 url = st.experimental_get_query_params()
 authorization_code = url.get("code", None)
 
 if authorization_code:
-    authorization_code = authorization_code
+    st.write("Authorization successful!")
+    # Proceed with generating the access token...
 else:
-    st.write("Authorization code not found. Please try again :(")
+    st.write("Authorization not found. Please authorize the app first.")
+
+
+# Get the authorization code from the user after they grant access
+# authorization_code = input("Enter the authorization code: ")
 
 # generate access token
 
