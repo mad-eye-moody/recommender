@@ -56,7 +56,7 @@ st.link_button("Please authorize the app", AUTHORIZATION_URL, help="This app nee
 # Get the authorization code from the user after they grant access
 authorization_code = input("Enter the authorization code: ")
 
-url = st.query_params()
+url = st.experimental_get_query_params()
 authorization_code = url.get("code", None)
 
 if authorization_code:
