@@ -180,8 +180,8 @@ user_music = pd.merge(df_t, df_features, on='track_id', how='outer')
 """
 
 
-user_input = input("Are you heading to sleep?")
-index = 'sleep' if (user_input.lower() == 'yes') else 'other'
+#user_input = input("Are you heading to sleep?")
+#index = 'sleep' if (user_input.lower() == 'yes') else 'other'
 
 user_input = st.text_input("Are you heading to sleep?", help="This information will help us generate a better playlist for you", placeholder="Please answer in yes or no", label_visibility="visible")
 index = 'sleep' if (user_input.lower() == 'yes') else 'other'
