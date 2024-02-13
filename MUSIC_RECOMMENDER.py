@@ -51,27 +51,18 @@ AUTHORIZATION_URL = ( 'https://accounts.spotify.com/authorize?client_id=' + CLIE
 print("Please visit the following URL to authorize the app:")
 print(AUTHORIZATION_URL)
 
-st.experimental_set_query_params(redirect_uri=REDIRECT_URI)
-
 auth_button = st.button("Please authorize the app", help="Click to authorize the app with Spotify")
 
-if auth_button:
-    st.write(f"Please visit the following URL to authorize the app:")
-    st.write(AUTHORIZATION_URL)
-
-authorization_code = st.experimental_get_query_params().get("code", None)
-
+user_input = st.text_input("Authorization code:", help="Required to authorize the app", placeholder="You can find it appended in the url as a paramater", label_visibility="visible")
 
 if authorization_code:
     st.write("Authorization successful!")
-    # Proceed with generating the access token...
 else:
     st.write("Authorization not found. Please authorize the app first.")
 
 
 # Get the authorization code from the user after they grant access
 # authorization_code = input("Enter the authorization code: ")
-
 # generate access token
 
 AUTH_URL = 'https://accounts.spotify.com/api/token'
