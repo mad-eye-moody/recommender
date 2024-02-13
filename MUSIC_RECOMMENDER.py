@@ -53,7 +53,7 @@ print(AUTHORIZATION_URL)
 st.write(AUTHORIZATION_URL)
 auth_button = st.button("Please authorize the app", help="Click to authorize the app with Spotify")
 
-user_input = st.text_input("Authorization code:", help="Required to authorize the app", placeholder="You can find it appended in the url as a paramater", label_visibility="visible")
+authorization_code = st.text_input("Authorization code:", help="Required to authorize the app", placeholder="You can find it appended in the url as a paramater", label_visibility="visible")
 
 if authorization_code:
     st.write("Authorization successful!")
