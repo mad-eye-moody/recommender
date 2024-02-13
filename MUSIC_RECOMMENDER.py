@@ -59,8 +59,8 @@ if auth_button:
     st.write(f"Please visit the following URL to authorize the app:")
     st.write(AUTHORIZATION_URL)
 
-url = st.query_params()
-authorization_code = url.get("code", None)
+authorization_code = st.experimental_get_query_params().get("code", None)
+
 
 if authorization_code:
     st.write("Authorization successful!")
