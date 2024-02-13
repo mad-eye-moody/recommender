@@ -51,10 +51,11 @@ AUTHORIZATION_URL = ( 'https://accounts.spotify.com/authorize?client_id=' + CLIE
 print("Please visit the following URL to authorize the app:")
 print(AUTHORIZATION_URL)
 
+st.experimental_set_query_params(redirect_uri=REDIRECT_URI)
+
 auth_button = st.button("Please authorize the app", help="Click to authorize the app with Spotify")
 
 if auth_button:
-    st.query_params(redirect_uri=REDIRECT_URI)
     st.write(f"Please visit the following URL to authorize the app:")
     st.write(AUTHORIZATION_URL)
 
