@@ -179,10 +179,6 @@ user_music = pd.merge(df_t, df_features, on='track_id', how='outer')
 * Select a random cell from the dataset
 """
 
-from google.colab import drive
-drive.mount('/content/drive')
-
-cd /content/drive/MyDrive/PROJECT
 
 user_input = input("Are you heading to sleep?")
 index = 'sleep' if (user_input.lower() == 'yes') else 'other'
