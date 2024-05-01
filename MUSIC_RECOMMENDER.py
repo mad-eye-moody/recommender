@@ -30,8 +30,8 @@ import pandas as pd
 
 #IDs from Spotify Developer Dashboard
 
-CLIENT_ID = 'e3d55cc8c20548fab51f3df781f49ed1'
-CLIENT_SECRET = '52da3c96f0fb4dc683724c7d13f1b350'
+CLIENT_ID = '5ee273d90d6e4e59ab58bba4f6404dde'
+CLIENT_SECRET = 'c098389d7bca435f82e852a54e012ede'
 REDIRECT_URI= 'https://recommender-dyj8dtwznh39x2jevwntzx.streamlit.app/'
 
 # Spotify API endpoints
@@ -51,13 +51,12 @@ AUTHORIZATION_URL = ( 'https://accounts.spotify.com/authorize?client_id=' + CLIE
 #print("Please visit the following URL to authorize the app:")
 #print(AUTHORIZATION_URL)
 st.write(AUTHORIZATION_URL)
-st.balloons()
-
 
 authorization_code = st.text_input("Authorization code:", help="Required to authorize the app", placeholder="You can find it appended in the url as a paramater", label_visibility="visible")
 
 if authorization_code:
     st.write("Authorization successful!")
+    st.balloons()
 else:
     st.write("Authorization not found. Please authorize the app first.")
 
