@@ -43,15 +43,14 @@ LIKED_SONGS_ENDPOINT = '/me/tracks'
 # Authorization URL for the user to grant access to their Spotify account
 
 SCOPES = ['user-top-read', 'playlist-modify-private', 'playlist-modify-public']
-
 AUTHORIZATION_URL = ( 'https://accounts.spotify.com/authorize?client_id=' + CLIENT_ID + '&response_type=code&redirect_uri=' + REDIRECT_URI + '&scope=' + "%20".join(SCOPES))
 
 # Print the authorization URL for the user to visit
 
 #print("Please visit the following URL to authorize the app:")
 #print(AUTHORIZATION_URL)
-st.write(AUTHORIZATION_URL)
 
+st.link_button("Please visit authorize the app", AUTHORIZATION_URL)
 authorization_code = st.text_input("Authorization code:", help="Required to authorize the app", placeholder="You can find it appended in the url as a paramater", label_visibility="visible")
 
 if authorization_code:
