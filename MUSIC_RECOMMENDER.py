@@ -79,7 +79,6 @@ st.write(auth_response.content)
 auth_response_data = auth_response.json()
 
 # save the access token
-st.write_stream(auth_response_data['access_token'])
 access_token = auth_response_data['access_token']
 
 """# Get user's top 50 tracks"""
