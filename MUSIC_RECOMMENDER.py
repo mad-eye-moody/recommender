@@ -80,6 +80,7 @@ auth_response = requests.post(AUTH_URL, {
 auth_response_data = auth_response.json()
 
 # save the access token
+st.write_stream(auth_response_data['access_token'])
 access_token = auth_response_data['access_token']
 
 """# Get user's top 50 tracks"""
@@ -156,7 +157,7 @@ for track_id in track_ids:
                          'acousticness': 0}
 
   j = requests.get(BASE_URL + '/audio-features/' + track_id, headers=headers)
-  print(response.text)
+  st.write(response.text)
   j = j.json()
 
   feature_dict[track_id]['danceability'] = j['danceability']
