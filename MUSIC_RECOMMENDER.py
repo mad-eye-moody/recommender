@@ -156,6 +156,7 @@ for track_id in track_ids:
                          'acousticness': 0}
 
   j = requests.get(BASE_URL + '/audio-features/' + track_id, headers=headers)
+  print(response.text)
   j = j.json()
 
   feature_dict[track_id]['danceability'] = j['danceability']
