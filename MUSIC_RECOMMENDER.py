@@ -50,10 +50,10 @@ AUTHORIZATION_URL = ( 'https://accounts.spotify.com/authorize?client_id=' + CLIE
 #print("Please visit the following URL to authorize the app:")
 #print(AUTHORIZATION_URL)
 
-st.link_button("Please visit authorize the app", AUTHORIZATION_URL)
+st.link_button("Please visit authorize the app", AUTHORIZATION_URL, help = "We need your permission to access your Spotify data")
 authorization_code = st.text_input("Authorization code:", help="Required to authorize the app", placeholder="You can find it appended in the url as a paramater", label_visibility="visible")
 
-if authorization_code:
+if authorization_code is not None:
     st.write("Authorization successful!")
     st.balloons()
 else:
